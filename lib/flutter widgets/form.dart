@@ -36,6 +36,10 @@ class _FormScreenState extends State<FormScreen> {
 
   String? _selectedValue = "";
 
+  bool male = false;
+  bool female = false;
+  bool other = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,7 +140,58 @@ class _FormScreenState extends State<FormScreen> {
                   _selectedValue = val as String;
                 });
                 }
-            )
+            ),
+            SizedBox(height: 20,),
+            Text("Select Your gender",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Checkbox(value: male,
+                    shape: CircleBorder(),
+                    onChanged: (bool?value){
+                   setState(() {
+                    male = value??false;
+                  });
+                }),
+                Text("Male"),
+                SizedBox(width: 20,),
+                Checkbox(value: female,
+                    shape: CircleBorder(),
+                    onChanged: (bool?value){
+                   setState(() {
+                    female = value??false;
+
+                  });
+                }),
+                Text("Female"),
+                SizedBox(width: 20,),
+                Checkbox(value: other,
+                    shape: CircleBorder(),
+                    onChanged: (bool?value){
+                   setState(() {
+                    other = value??false;
+                  });
+                }),
+                Text("Other"),
+              ],
+            ),
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(200, 50),
+                  backgroundColor: Colors.deepPurpleAccent.shade200
+                ),
+                  onPressed: (){},
+                  child: Text("Submit",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20
+                  ),
+                  )
+              ),
+            ),
           ],
         ),
       ),
