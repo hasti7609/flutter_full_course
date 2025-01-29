@@ -14,6 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Practice',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        cardColor: Colors.white,
+        canvasColor: Colors.white,
         useMaterial3: true,
       ),
       home: const FormScreen(),

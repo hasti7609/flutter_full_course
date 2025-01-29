@@ -8,6 +8,26 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
+
+  DateTime?selectedDate;
+
+  void datePicker() async{
+    DateTime? datePicker = await showDatePicker(
+      keyboardType: TextInputType.datetime,
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1900),
+        lastDate: DateTime(2025,12,31));
+    if(datePicker!=null) {
+      setState(() {
+        selectedDate = datePicker;
+      });
+      print("Date Selected ${datePicker.day}-"
+          "${datePicker.month}-"
+          "${datePicker.year}");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +44,7 @@ class _FormScreenState extends State<FormScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Center(
-              child: Text("Student Login Form",
+              child: Text("Student Register Form",
               style: Theme.of(context).textTheme.headlineMedium,),
             ),
             SizedBox(height: 20,),
@@ -63,6 +83,31 @@ class _FormScreenState extends State<FormScreen> {
                   labelText: "Enter Your Last Name",
               ),
             ),
+            SizedBox(height: 20,),
+            Text("Date of Birth",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            SizedBox(height: 10,),
+            Container(
+              height: 40,width: 150,
+              padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.purple.shade50
+              ),
+              child: selectedDate!=null? Text("${selectedDate?.day}-"
+                  "${selectedDate?.month}-"
+                  "${selectedDate?.year}",
+               textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleMedium,
+              ):Text("No date selected")
+            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(150, 35)
+                ),
+                onPressed: datePicker,
+                child: Text("Select"))
           ],
         ),
       ),
