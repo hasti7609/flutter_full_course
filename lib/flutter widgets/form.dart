@@ -121,6 +121,8 @@ class _FormScreenState extends State<FormScreen> {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             DropdownButtonFormField(
+              icon: Icon(Icons.arrow_drop_down_circle,
+              color: Colors.deepPurple,),
               value: _selectedValue,
                 items: _courseList.map(
                     (e){
