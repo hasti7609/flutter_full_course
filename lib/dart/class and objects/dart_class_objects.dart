@@ -1,7 +1,7 @@
 
 void main(){
   print("Creating and Objects");
-  Human().numbers();
+  Human().numbers();//creating class objects
 }
 
 class Human{
