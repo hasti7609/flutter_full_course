@@ -11,6 +11,10 @@ class _FormScreenState extends State<FormScreen> {
 
   DateTime?selectedDate;
 
+  _FormScreenState(){
+    _selectedValue = _courseList[1];
+  }
+
   void datePicker() async{
     DateTime? datePicker = await showDatePicker(
       keyboardType: TextInputType.datetime,
@@ -27,6 +31,10 @@ class _FormScreenState extends State<FormScreen> {
           "${datePicker.year}");
     }
   }
+
+  final _courseList = ["BBA","BCA","COMPUTER SCIENCE","MCA","MBA","AGREE CULTURE"];
+
+  String? _selectedValue = "";
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +115,26 @@ class _FormScreenState extends State<FormScreen> {
                   minimumSize: Size(150, 35)
                 ),
                 onPressed: datePicker,
-                child: Text("Select"))
+                child: Text("Select")),
+            SizedBox(height: 20,),
+            Text("Select Course",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            DropdownButtonFormField(
+              value: _selectedValue,
+                items: _courseList.map(
+                    (e){
+                      return DropdownMenuItem(
+                          child: Text(e),value: e,
+                      );
+                    }
+                ).toList(),
+                onChanged: (val){
+                setState(() {
+                  _selectedValue = val as String;
+                });
+                }
+            )
           ],
         ),
       ),
