@@ -36,13 +36,19 @@ class _FormScreenState extends State<FormScreen> {
 
   String? _selectedValue = "";
 
-  bool male = false;
-  bool female = false;
-  bool other = false;
+   String? _selectedGender; // var to select gender
+
+   void _onCheckboxChanged(String gender){
+     setState(() {
+       _selectedGender= _selectedGender==gender?null:gender; // toggle selection
+     });
+   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         title: Text("Student Form",
@@ -145,45 +151,60 @@ class _FormScreenState extends State<FormScreen> {
             Text("Select Your gender",
               style: Theme.of(context).textTheme.titleLarge,
             ),
+            /// check box
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Checkbox(value: male,
+                Checkbox(value: _selectedGender == "Male",
                     shape: CircleBorder(),
                     onChanged: (bool?value){
                    setState(() {
-                    male = value??false;
+                    _onCheckboxChanged("Male");
                   });
                 }),
                 Text("Male"),
                 SizedBox(width: 20,),
-                Checkbox(value: female,
+                Checkbox(value: _selectedGender == 'Female',
                     shape: CircleBorder(),
                     onChanged: (bool?value){
                    setState(() {
-                    female = value??false;
+                   _onCheckboxChanged("Female");
 
                   });
                 }),
                 Text("Female"),
                 SizedBox(width: 20,),
-                Checkbox(value: other,
+                Checkbox(value: _selectedGender == "Other",
                     shape: CircleBorder(),
                     onChanged: (bool?value){
                    setState(() {
-                    other = value??false;
+                   _onCheckboxChanged("Other");
                   });
                 }),
                 Text("Other"),
               ],
             ),
+            SizedBox(height: 30,),
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(200, 50),
                   backgroundColor: Colors.deepPurpleAccent.shade200
                 ),
-                  onPressed: (){},
+                  onPressed: (){
+                    /// showing the bottom sheet when ever i press the button
+                    showModalBottomSheet(context: context, builder: (BuildContext context){
+                      return Container(
+                        padding: EdgeInsets.all(10),
+                        child: Text("Your Form Has Been Submitted!!",
+                        style: TextStyle(
+                          fontSize: 24
+                        ),
+                        ),
+
+                      );
+                    });
+                  },
                   child: Text("Submit",
                   style: TextStyle(
                     color: Colors.white,
