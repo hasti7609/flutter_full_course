@@ -10,20 +10,26 @@ class ListPageScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.amber,
         title: Text("List Page"),
+        actions: [
+          IconButton(
+              onPressed: (){
+                showModalBottomSheet(context: context, builder: (BuildContext context){
+                  return Padding(
+                    padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom,
+                        left: 0
+                    ),
+                    child: BottomListPage(),
+                  );
+                });
+              },
+              icon: Icon(Icons.add)
+          )
+        ],
       ),
       body: Center(
         child: ElevatedButton(
-            onPressed: (){
-              showModalBottomSheet(context: context, builder: (BuildContext context){
-                return Padding(
-                    padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).viewInsets.bottom,
-                      left: 0
-                    ),
-                 child: BottomListPage(),
-                );
-              });
-            },
+            onPressed: (){},
             child: Icon(
                 Icons.add
             )),
