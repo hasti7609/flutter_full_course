@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:starting_flutter/bottom_nav_bar/views/bottom_bar.dart';
 import 'package:starting_flutter/navigations/pages/intro_pages.dart';
 import 'package:starting_flutter/navigations/pages/second_page.dart';
 
@@ -7,8 +8,10 @@ class RouteGenerator{
     final args = settings.arguments;
     switch(settings.name){
       case'/':
-        return MaterialPageRoute(builder: (_)=>IntroPages());
-        case'/second':
+        return MaterialPageRoute(builder: (_)=>BottomBarScreen());
+        case'/first':
+          return MaterialPageRoute(builder: (_)=>IntroPages());
+      case '/second':
           if(args is String){
             return MaterialPageRoute(builder: (_)=>SecondPage(items: args,));
           }
