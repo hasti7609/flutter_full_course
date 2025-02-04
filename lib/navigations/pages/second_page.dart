@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+  final String items;
+  const SecondPage({super.key,required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +11,14 @@ class SecondPage extends StatelessWidget {
         title: Text("Second Page"),
         centerTitle: true,
         backgroundColor: Colors.deepPurple.shade200,
+      ),
+      body: Center(
+        child: Card(
+          color: Colors.orange.shade200,
+          elevation: 3,
+          child: Text(items,
+          style: Theme.of(context).textTheme.headlineMedium,),
+        ),
       ),
     );
   }
