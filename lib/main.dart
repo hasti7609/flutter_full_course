@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'navigations/pages/main_pages.dart';
+import 'package:starting_flutter/navigations/pages/intro_pages.dart';
 
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MainPagesScreen(),
+      home: const IntroPages(),
     );
   }
 }
