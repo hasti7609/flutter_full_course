@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:strating_flutter/flutter%20widgets/provider/list_page.dart';
-import 'package:strating_flutter/navigations/pages/main_pages.dart';
+import 'navigations/pages/main_pages.dart';
+
 
 void main() {
   runApp(const MyApp());

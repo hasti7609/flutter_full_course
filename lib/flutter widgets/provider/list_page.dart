@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:strating_flutter/flutter%20widgets/provider/bottom_list_page.dart';
+import 'package:starting_flutter/flutter%20widgets/provider/bottom_list_page.dart';
 
 class ListPageScreen extends StatelessWidget {
   const ListPageScreen({super.key});
