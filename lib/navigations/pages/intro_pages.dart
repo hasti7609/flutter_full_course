@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:starting_flutter/navigations/pages/second_page.dart';
+
 
 class IntroPages extends StatelessWidget {
   const IntroPages({super.key});
@@ -24,8 +24,7 @@ class IntroPages extends StatelessWidget {
               height: 10,
             ),
             ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=>SecondPage()));
+             Navigator.of(context).pushNamed('/second');
               }, child: Text("Next!!"))
           ],
         ),

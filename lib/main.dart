@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:starting_flutter/navigations/pages/intro_pages.dart';
+import 'package:starting_flutter/navigations/pages/route_generator.dart';
+
 
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const IntroPages(),
+     initialRoute: '/',
+     onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
