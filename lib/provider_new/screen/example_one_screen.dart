@@ -36,7 +36,10 @@ class _ExampleOneScreenState extends State<ExampleOneScreen> {
                     inactiveColor: Colors.red,
                     value: val.val,
                     onChanged: (value){
-                     val.setValue(value);
+                      setState(() {
+                        val.setValue(value);
+                      });
+
                     });
               }
             ),
