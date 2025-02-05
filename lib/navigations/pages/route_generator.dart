@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-// import 'package:starting_flutter/bottom_nav_bar/views/bottom_bar.dart';
 import 'package:starting_flutter/navigations/pages/intro_pages.dart';
 import 'package:starting_flutter/navigations/pages/second_page.dart';
-import 'package:starting_flutter/riverpod/home_page_riverpod.dart';
+import 'package:starting_flutter/provider_new/screen/home_screen_provider.dart';
 
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
     final args = settings.arguments;
     switch(settings.name){
       case'/':
-        return MaterialPageRoute(builder: (_)=>HomePageRiverpodScreen());
+        return MaterialPageRoute(builder: (_)=>HomeScreenProvider());
         case'/first':
           return MaterialPageRoute(builder: (_)=>IntroPages());
       case '/second':

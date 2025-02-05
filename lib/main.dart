@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:starting_flutter/navigations/pages/route_generator.dart';
+import 'package:starting_flutter/provider_new/screen/home_screen_provider.dart';
 
 
 
@@ -18,8 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-     initialRoute: '/',
-     onGenerateRoute: RouteGenerator.generateRoute,
+     home: HomeScreenProvider(),
     );
   }
 }
