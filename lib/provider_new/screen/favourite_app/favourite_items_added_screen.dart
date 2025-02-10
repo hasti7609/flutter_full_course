@@ -19,6 +19,7 @@ class _FavouriteItemsAddedScreenState extends State<FavouriteItemsAddedScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Added Item"),
+        surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.deepOrange.shade300,
         actions: [
           IconButton(

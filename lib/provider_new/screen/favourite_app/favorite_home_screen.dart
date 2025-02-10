@@ -19,6 +19,7 @@ class _FavoriteHomeScreenState extends State<FavoriteHomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Favourite App"),
+        surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.deepOrange.shade300,
         actions: [
           IconButton(
