@@ -12,10 +12,10 @@ class ExampleOneScreen extends StatefulWidget {
 
 class _ExampleOneScreenState extends State<ExampleOneScreen> {
 
-
   @override
   Widget build(BuildContext context) {
     // final provider = Provider.of<ExampleOneProvider>(context,listen: true);
+    final container = Provider.of<AnimatedContainerProvider>(context,listen: false);
     return Scaffold(
       appBar: AppBar(
         title: Text("Example One"),
@@ -72,8 +72,31 @@ class _ExampleOneScreenState extends State<ExampleOneScreen> {
                   ),
                 ],
               );
-            })
+            }),
+            Consumer<AnimatedContainerProvider>(builder: (child,builder,value){
+              return  Expanded(
+                child: Stack(
+                  children: [
+                    AnimatedPositioned(
+                      duration: Duration(seconds: 1),
+                      top:container.top,left: container.left,
+                      right: container.right,
+                      bottom: container.bottom,
+                      child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        height: container.height,
+                        width: container.width,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color:container.color,
+                        ),
 
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            })
           ],
         ),
       ),

@@ -17,7 +17,8 @@ class _HomeScreenProviderState extends State<HomeScreenProvider> {
   void initState() {
     super.initState();
     final provider = Provider.of<CountProvider>(context,listen: false);
-    Timer.periodic(Duration(seconds: 0), (timer){
+    Timer.periodic(Duration(seconds: 2), (timer){
+      print(provider.count.toString());
       provider.setCount();
     });
   }
