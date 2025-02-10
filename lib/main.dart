@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:starting_flutter/provider_new/provider/count_provider.dart';
 import 'package:starting_flutter/provider_new/provider/example_one_provider.dart';
-import 'package:starting_flutter/provider_new/provider/favourite_app/favorite_home_screen.dart';
-import 'package:starting_flutter/provider_new/screen/example_one_screen.dart';
+import 'package:starting_flutter/provider_new/screen/favourite_app/favorite_home_screen.dart';
 
 
 
