@@ -17,6 +17,22 @@ class FavoriteHomeScreen extends StatelessWidget {
           )
         ],
       ),
+      body: Column(
+        children: [
+          Expanded(child:
+          ListView.builder(
+            itemCount: 100,
+              itemBuilder: (context,index){
+            return ListTile(
+              title: Text("Item $index"),
+              trailing: IconButton(
+                  onPressed: (){},
+                  icon: Icon(Icons.favorite)
+              ),
+            );
+          }))
+        ],
+      ),
     );
   }
 }
